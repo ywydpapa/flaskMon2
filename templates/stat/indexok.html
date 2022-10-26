@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>방화벽 로그관리</title>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
+    <link href="{{ url_for('static', filename = 'css/root.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'css/commonHeader.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename = 'css/commonContent.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#foo-table').DataTable({
+        "pageLength":50,
+        "destroy":true,
+        "order":[2,'desc'],
+        });
+        });
+    </script>
+</head>
+<body>
+    <div id="commonTopHeader">
+        <div id="mainTopLogo">
+            <a href="">
+                <img src="" alt=""/>
+            </a>
+        </div>
+
+        <div class="mainTopMenu" id="mainTopMenu">
+            <ul>
+                <li><button type="button" data-keyword="OneHundred" onClick="location.href='./list100'">100개 보기</button></li>
+                <li><button type="button" data-keyword="OneThous" onClick="location.href='./list1000'">1,000개 보기</button></li>
+                <li><button type="button" data-keyword="TenThous" onClick="location.href='./list10000'">10,000개 보기</button></li>
+            </ul>
+        </div>
+
+        <div id="mainInfo"></div>
+    </div>
+
+    <div id="commonBodyContents">
+        <div id="commonSideMenu">
+            <div class="sideMenu" id="sideMenu">
+                <ul id="business">
+                    <li>
+                        <a href="/static">
+                            <!-- <img src="../images/common/commonMenu/mainHomeIcon.png" id="mainHomeIcon" /> -->
+                            <span>메뉴</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/business/notice">
+                            <!-- <img src="../images/common/commonMenu/mainNoticeIcon.png" id="mainNoticeIcon" /> -->
+                            <span>메뉴</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- <img src="../images/common/commonMenu/mainSchedIcon.png" id="mainSchedIcon" /> -->
+                            <span>메뉴</span>
+                            <span id="slideSpan">+</span>
+                        </a>
+                        <ul id="panel">
+                            <li><a href="/business/schedule">하위메뉴</a></li>
+                            <li><a href="/business/workreport">하위메뉴</a></li>
+                            <li><a href="/business/workjournal">하위메뉴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- commonSideMenu end-->
+
+        <div id="commonContent">
+            <div class="container">
+                <div>
+                   <table id="foo-table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <td>D001</td>
+                            <td>D002</td>
+                            <td>D003</td>
+                            <td>D004</td>
+                            <td>D005</td>
+                            <td>D006</td>
+                            <td>D007</td>
+                            <td>D008</td>
+                            <td>D009</td>
+                            <td>D010</td>
+                            <td>D012</td>
+                            <td>D013</td>
+                            <td>D014</td>
+                            <td>D015</td>
+                            <td>D016</td>
+                        </thead>
+                        <tbody>
+                            {% for i in result %}
+                            <tr>
+                            <td>{{i[0]}}</td>
+                            <td>{{i[1]}}</td>
+                            <td>{{i[2]}}</td>
+                            <td>{{i[3]}}</td>
+                            <td>{{i[4]}}</td>
+                            <td>{{i[5]}}</td>
+                            <td>{{i[6]}}</td>
+                            <td>{{i[7]}}</td>
+                            <td>{{i[8]}}</td>
+                            <td>{{i[9]}}</td>
+                            <td>{{i[10]}}</td>
+                            <td>{{i[11]}}</td>
+                            <td>{{i[12]}}</td>
+                            <td>{{i[13]}}</td>
+                            <td>{{i[14]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                   </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
