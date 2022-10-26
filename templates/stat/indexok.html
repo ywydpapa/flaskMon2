@@ -34,6 +34,7 @@
                 <li><button type="button" data-keyword="OneHundred" onClick="location.href='./list100'">100개 보기</button></li>
                 <li><button type="button" data-keyword="OneThous" onClick="location.href='./list1000'">1,000개 보기</button></li>
                 <li><button type="button" data-keyword="TenThous" onClick="location.href='./list10000'">10,000개 보기</button></li>
+                <li><button type="button" data-keyword="LOGOUT" onClick="location.href='../logout'">로그아웃</button></li>
             </ul>
         </div>
 
@@ -47,7 +48,9 @@
                     <li>
                         <a href="/static">
                             <!-- <img src="../images/common/commonMenu/mainHomeIcon.png" id="mainHomeIcon" /> -->
-                            <span>메뉴</span>
+                            {%  if session["userName"] %}
+                            <span>{{ session["userName"]}}으로 로그인중</span>
+                            {%  endif %}
                         </a>
                     </li>
                     <li>

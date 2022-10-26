@@ -1,10 +1,11 @@
-from flask import Flask , request, render_template, redirect
+from flask import Flask , request, render_template, redirect , session
 from dbconn import selectUsers
 import pymysql
 
 db=None
 cur=None
 app = Flask(__name__)
+app.secret_key = 'fsdfsfgsfdg3234'
 
 @app.route('/')
 def home():
@@ -29,6 +30,9 @@ def login():
         upw = request.form.get('upw')
         row = selectUsers(uid, upw)
         if row:
+            session['userNo'] = row['userNo']
+            session['userName'] = row['userName']
+            session['userRole'] = row['userRole']
             return redirect('/logman')
         else:
             return '''
@@ -39,6 +43,11 @@ def login():
                     history.back()
                 </script>
             '''
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('./login/login.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=80, host='0.0.0.0')
