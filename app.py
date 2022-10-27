@@ -15,11 +15,31 @@ def home():
 def okhome():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
-    sql = "select * from inoutT order by d002 desc limit 500"
+    sql = "select * from hBefore order by d002 desc"
     cur.execute(sql)
     result = cur.fetchall()
     db.close()
-    return render_template("stat/indexok.html", result=result)
+    return render_template("stat/indexSel.html", result=result)
+
+@app.route('/stlogman')  # 요청
+def searchTxt():
+    db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
+    cur = db.cursor()
+    sql = "select * from hBefore order by d002 desc"
+    cur.execute(sql)
+    result = cur.fetchall()
+    db.close()
+    return render_template("stat/indexTxt.html", result=result)
+
+@app.route('/alllogman')  # 요청
+def searchFrto():
+    db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
+    cur = db.cursor()
+    sql = "select * from hBefore order by d002 desc"
+    cur.execute(sql)
+    result = cur.fetchall()
+    db.close()
+    return render_template("stat/indexFrto.html", result=result)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

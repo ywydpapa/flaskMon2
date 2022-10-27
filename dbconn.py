@@ -6,7 +6,7 @@ def selectUsers(uid, upw):
     try:
         connection = my.connect(host='192.168.1.45',
                                 user='swcore',
-                                password='core2020',  # 사용자가 지정한 비밀번호
+                                password='core2020',
                                 database='logger',
                                 cursorclass=my.cursors.DictCursor
                                 )
