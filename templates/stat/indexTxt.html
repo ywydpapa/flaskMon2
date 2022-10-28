@@ -13,7 +13,7 @@
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#foo-table tfoot td').each(function () {
+            $('#foo-table thead td').each(function () {
                 var title = $(this).text();
                 $(this).html('<input type="text" placeholder="' + title + '" />');
             });
@@ -28,7 +28,7 @@
                 .columns('.showMenu')
                 .every(function () {
                     var that = this;
-                    $('input', this.footer()).on('keyup change clear', function () {
+                    $('input', this.header()).on('keyup change clear', function () {
                         if (that.search() !== this.value) {
                             that.search(this.value).draw();
                         }
@@ -99,6 +99,7 @@
                 <div>
                    <table id="foo-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
+
                             <tr>
                             <td>D001</td>
                             <td>D002</td>
