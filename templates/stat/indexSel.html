@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>방화벽 로그관리</title>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
-    <link href="{{ url_for('static', filename = 'css/root.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ url_for('static', filename = 'css/commonHeader.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ url_for('static', filename = 'css/commonContent.css') }}" rel="stylesheet" type="text/css"/>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+{% include '/menu/header.html' %}
     <script>
         $(document).ready(function () {
             $('#foo-table').DataTable({
@@ -48,54 +39,12 @@
                 <img src="" alt=""/>
             </a>
         </div>
-
-        <div class="mainTopMenu" id="mainTopMenu">
-            <ul>
-                <li><button type="button" data-keyword="OneHundred" onClick="location.href='../logman'">셀렉트검색</button></li>
-                <li><button type="button" data-keyword="OneThous" onClick="location.href='../stlogman'">텍스트검색</button></li>
-                <li><button type="button" data-keyword="TenThous" onClick="location.href='../alllogman'">장기간검색</button></li>
-                <li><button type="button" data-keyword="LOGOUT" onClick="location.href='../logout'">로그아웃</button></li>
-            </ul>
-        </div>
-
+{% include './menu/topmenu.html' %}
         <div id="mainInfo"></div>
     </div>
 
     <div id="commonBodyContents">
-        <div id="commonSideMenu">
-            <div class="sideMenu" id="sideMenu">
-                <ul id="business">
-                    <li>
-                        <a href="/static">
-                            <!-- <img src="../images/common/commonMenu/mainHomeIcon.png" id="mainHomeIcon" /> -->
-                            {%  if session["userName"] %}
-                            <span>{{ session["userName"]}}으로 로그인중</span>
-                            {%  endif %}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/business/notice">
-                            <!-- <img src="../images/common/commonMenu/mainNoticeIcon.png" id="mainNoticeIcon" /> -->
-                            <span>메뉴</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <!-- <img src="../images/common/commonMenu/mainSchedIcon.png" id="mainSchedIcon" /> -->
-                            <span>메뉴</span>
-                            <span id="slideSpan">+</span>
-                        </a>
-                        <ul id="panel">
-                            <li><a href="/business/schedule">하위메뉴</a></li>
-                            <li><a href="/business/workreport">하위메뉴</a></li>
-                            <li><a href="/business/workjournal">하위메뉴</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- commonSideMenu end-->
-
+{% include './menu/sidemenu.html' %}        <!-- commonSideMenu end-->
         <div id="commonContent">
             <div class="container">
                 <div>

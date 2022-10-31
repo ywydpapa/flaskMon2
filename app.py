@@ -15,6 +15,16 @@ def home():
 def okhome():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
+    sql = "select * from hBefore order by d002 desc limit 200"
+    cur.execute(sql)
+    result = cur.fetchall()
+    db.close()
+    return render_template("stat/indexStart.html", result=result)
+
+@app.route('/sslogman')  # 요청
+def searchSel():
+    db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
+    cur = db.cursor()
     sql = "select * from hBefore order by d002 desc"
     cur.execute(sql)
     result = cur.fetchall()

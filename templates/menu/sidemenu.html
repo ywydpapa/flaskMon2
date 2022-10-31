@@ -1,0 +1,34 @@
+        <div id="commonSideMenu">
+            <div class="sideMenu" id="sideMenu">
+                <ul id="business">
+                    <li>
+                        <a href="/logman">
+                            <!-- <img src="../images/common/commonMenu/mainHomeIcon.png" id="mainHomeIcon" /> -->
+                            {%  if session["userName"] %}
+                            <span>{{ session["userName"]}}으로 로그인중</span>
+                            {%  endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <ul id="panel">
+                            <li><a href="/subm/mnu001">Traffic</a></li>
+                            <li><a href="/subm/mnu002">Threat</a></li>
+                            <li><a href="/subm/mnu003">URL Filtering</a></li>
+                            <li><a href="/subm/mnu004">WildFire Submissions</a></li>
+                            <li><a href="/subm/mnu005">Data Filtering</a></li>
+                            <li><a href="/subm/mnu006">HIP Match</a></li>
+                            <li><a href="/subm/mnu007">GlobalProtect</a></li>
+                            <li><a href="/subm/mnu008">IP-Tag</a></li>
+                            <li><a href="/subm/mnu009">User-ID</a></li>
+                            <li><a href="/subm/mnu010">Description</a></li>
+                            <li><a href="/subm/mnu011">Tunnel Inspection</a></li>
+                            <li><a href="/subm/mnu012">Configuration</a></li>
+                            <li><a href="/subm/mnu013">System</a></li>
+                            <li><a href="/subm/mnu014">Alarm</a></li>
+                            <li><a href="/subm/mnu015">Authentication</a></li>
+                            <li><a href="/subm/mnu016">Unified</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
