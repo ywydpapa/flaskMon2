@@ -1,6 +1,11 @@
+import now as now
 from flask import Flask , request, render_template, redirect , session
+
+import dbconn
 from dbconn import selectUsers
 import pymysql
+import datetime
+
 
 db=None
 cur=None
@@ -10,6 +15,32 @@ app.secret_key = 'fsdfsfgsfdg3234'
 @app.route('/')
 def home():
     return render_template('./login/login.html')
+
+@app.route('/subm/mnu001', methods=['GET', 'POST'])
+def mnu001f():
+    if request.method == 'GET':
+        datfr = ''
+        datto = ''
+        curr = datetime.datetime.now()
+        if datfr == '':
+            datfr = curr - datetime.timedelta(hours=1)
+            datfr = datfr.strftime('%Y-%m-%d %H:00')
+        if datto == '':
+            datto = curr.strftime('%Y-%m-%d %H:00')
+        result = dbconn.fromtoTraffic(datfr, datto)
+        return render_template('./subm/mnu001.html', result = result)
+    else:
+        datfr = request.form.get('datefrom')
+        datto = request.form.get('dateto')
+        curr = datetime.datetime.now()
+        if datfr == '':
+            datfr = curr - datetime.timedelta(hours = 1)
+        if datto == '':
+            datto = curr
+        datfr = datfr.strftime('%Y-%m-%d %H:00')
+        datto = datto.strftime('%Y-%m-%d %H:00')
+        result = dbconn.fromtoTraffic(datfr,datto)
+        return render_template("./subm/mnu001.html", result = result)
 
 @app.route('/logman')  # 요청
 def okhome():

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include '/menu/header.html' %}
+    <script>
+        $(document).ready(function () {
+            $('#foo-table thead td').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="' + title + '" />');
+            });
+            $('#foo-table').DataTable({
+             "pageLength":20,
+             "destroy":true,
+             "order":[2,'desc'],
+                initComplete: function () {
+            // Apply the search
+            this.api()
+                .columns('.showMenu')
+                .every(function () {
+                    var that = this;
+                    $('input', this.header()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+        });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="commonTopHeader">
+        <div id="mainTopLogo">
+            <a href="">
+                <img src="" alt=""/>
+            </a>
+        </div>
+{% include './menu/topmenu.html' %}
+        <div id="mainInfo"></div>
+    </div>
+
+    <div id="commonBodyContents">
+{% include './menu/sidemenu.html' %}
+        <!-- commonSideMenu end-->
+        <div id="commonContent">
+            <div class="container">
+                <div>
+                   <table id="foo-table" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                            <td>D001</td>
+                            <td>D002</td>
+                            <td>D003</td>
+                            <td>D004</td>
+                            <td>D005</td>
+                            <td>D006</td>
+                            <td>D007</td>
+                            <td>D008</td>
+                            <td>D009</td>
+                            <td>D010</td>
+                            <td>D012</td>
+                            <td>D013</td>
+                            <td>D014</td>
+                            <td>D015</td>
+                            <td>D016</td>
+                            <td>D016</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in result %}
+                            <tr>
+                            <td>{{i['d001']}}</td>
+                            <td>{{i['d002']}}</td>
+                            <td>{{i['d003']}}</td>
+                            <td>{{i['d004']}}</td>
+                            <td>{{i['d005']}}</td>
+                            <td>{{i['d006']}}</td>
+                            <td>{{i['d007']}}</td>
+                            <td>{{i['d008']}}</td>
+                            <td>{{i['d009']}}</td>
+                            <td>{{i['d010']}}</td>
+                            <td>{{i['d011']}}</td>
+                            <td>{{i['d012']}}</td>
+                            <td>{{i['d013']}}</td>
+                            <td>{{i['d014']}}</td>
+                            <td>{{i['d015']}}</td>
+                            <td>{{i['d016']}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                            <td>D001</td>
+                            <td>D002</td>
+                            <td>D003</td>
+                            <td>D004</td>
+                            <td>D005</td>
+                            <td>D006</td>
+                            <td>D007</td>
+                            <td>D008</td>
+                            <td>D009</td>
+                            <td>D010</td>
+                            <td>D012</td>
+                            <td>D013</td>
+                            <td>D014</td>
+                            <td>D015</td>
+                            <td>D016</td>
+                            <td>D016</td>
+                            </tr>
+                        </tfoot>
+                   </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
