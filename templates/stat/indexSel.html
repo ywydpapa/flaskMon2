@@ -39,14 +39,88 @@
                 <img src="" alt=""/>
             </a>
         </div>
-{% include './menu/topmenu.html' %}
-        <div id="mainInfo"></div>
+
+        <div id="mainInfo">
+            <form type="button" data-keyword="LOGOUT" onClick="location.href='../logout'">
+                <object src="/static/images/logout.svg" type="images/svg+xml">
+					<img src="/static/images/logout.svg" alt="logout"/>
+				</object>
+            </form>
+        </div>
     </div>
 
     <div id="commonBodyContents">
-{% include './menu/sidemenu.html' %}        <!-- commonSideMenu end-->
+        <div id="commonSideMenu">
+            <div class="sideMenu" id="sideMenu">
+                <ul id="business">
+                    <li>
+                        <a href="/static">
+                            <!-- <img src="../images/common/commonMenu/mainHomeIcon.png" id="mainHomeIcon" /> -->
+                            {%  if session["userName"] %}
+                            <div>
+                                <object src="/static/images/profileWoman.svg" type="images/svg+xml">
+                                    <img src="/static/images/profileWoman.svg" alt="profileWoman"/>
+                                </object>
+                                {{ session["userName"]}}
+                            </div>
+                            {%  endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/business/notice">
+                            <!-- <img src="../images/common/commonMenu/mainNoticeIcon.png" id="mainNoticeIcon" /> -->
+                            <span>메뉴</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <!-- <img src="../images/common/commonMenu/mainSchedIcon.png" id="mainSchedIcon" /> -->
+                            <span>메뉴</span>
+                            <span id="slideSpan">+</span>
+                        </a>
+                        <ul id="panel">
+                            <li><a href="/business/schedule">하위메뉴</a></li>
+                            <li><a href="/business/workreport">하위메뉴</a></li>
+                            <li><a href="/business/workjournal">하위메뉴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- commonSideMenu end-->
+
         <div id="commonContent">
             <div class="container">
+                <div class="topSearchWrap">
+                    <div>
+                        <form class="search">
+                            <div class="DateFrom">시작일</div>
+                            <input type="date">
+                            <input type="submit" value="date">
+                        </form>
+                        <form class="search">
+                            <div class="DateTo">마감일</div>
+                            <input type="date">
+                            <input type="submit" value="date">
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="mainTopMenu" id="mainTopMenu">
+                            <ul>
+                                <li><button type="button" data-keyword="OneHundred" onClick="location.href='../logman'" class="checked">셀렉트검색</button></li>
+                                <li><button type="button" data-keyword="OneThous" onClick="location.href='../stlogman'">텍스트검색</button></li>
+                                <li><button type="button" data-keyword="TenThous" onClick="location.href='../alllogman'">장기간검색</button></li>
+                                <!-- <li><button type="button" data-keyword="LOGOUT" onClick="location.href='../logout'">로그아웃</button></li> -->
+                            </ul>
+                        </div>
+                        <form class="search">
+                            <input type="search">
+                            <input type="submit" value="search">
+                        </form>
+                    </div>
+                </div>
+
                 <div>
                    <table id="foo-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
@@ -89,6 +163,101 @@
                             </tr>
                             {% endfor %}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td  class = "showMenu"></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            </tr>
+                        </tfoot>
+                        <tfoot>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td  class = "showMenu"></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            </tr>
+                        </tfoot>
+                        <tfoot>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td  class = "showMenu"></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            </tr>
+                        </tfoot>
+                        <tfoot>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td  class = "showMenu"></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            </tr>
+                        </tfoot>
+                        <tfoot>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td  class = "showMenu"></td>
+                            <td></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            <td class = "showMenu"></td>
+                            </tr>
+                        </tfoot>
                         <tfoot>
                             <tr>
                             <td></td>
