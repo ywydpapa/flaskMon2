@@ -1,4 +1,3 @@
-import now as now
 from flask import Flask , request, render_template, redirect , session
 
 import dbconn
@@ -42,7 +41,7 @@ def mnu001f():
         result = dbconn.fromtoTraffic(datfr,datto)
         return render_template("./subm/mnu001.html", result = result)
 
-@app.route('/logman')  # 요청
+@app.route('/monmain')  # 요청
 def okhome():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
@@ -52,7 +51,7 @@ def okhome():
     db.close()
     return render_template("stat/indexStart.html", result=result)
 
-@app.route('/sslogman')  # 요청
+@app.route('/dashmain')  # 요청
 def searchSel():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
@@ -62,25 +61,6 @@ def searchSel():
     db.close()
     return render_template("stat/indexSel.html", result=result)
 
-@app.route('/stlogman')  # 요청
-def searchTxt():
-    db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
-    cur = db.cursor()
-    sql = "select * from hBefore order by d002 desc"
-    cur.execute(sql)
-    result = cur.fetchall()
-    db.close()
-    return render_template("stat/indexTxt.html", result=result)
-
-@app.route('/alllogman')  # 요청
-def searchFrto():
-    db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
-    cur = db.cursor()
-    sql = "select * from hBefore order by d002 desc"
-    cur.execute(sql)
-    result = cur.fetchall()
-    db.close()
-    return render_template("stat/indexFrto.html", result=result)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -94,7 +74,7 @@ def login():
             session['userNo'] = row['userNo']
             session['userName'] = row['userName']
             session['userRole'] = row['userRole']
-            return redirect('/logman')
+            return redirect('/dashmain')
         else:
             return '''
                 <script>
