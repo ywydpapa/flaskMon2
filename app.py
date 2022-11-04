@@ -17,10 +17,10 @@ def home():
 
 @app.route('/subm/mnu001', methods=['GET', 'POST'])
 def mnu001f():
+    curr = datetime.datetime.now()
     if request.method == 'GET':
         datfr = ''
         datto = ''
-        curr = datetime.datetime.now()
         if datfr == '':
             datfr = curr - datetime.timedelta(hours=1)
             datfr = datfr.strftime('%Y-%m-%d %H:00')
@@ -31,7 +31,6 @@ def mnu001f():
     else:
         datfr = request.form.get('datefrom')
         datto = request.form.get('dateto')
-        curr = datetime.datetime.now()
         if datfr == '':
             datfr = curr - datetime.timedelta(hours = 1)
         if datto == '':
@@ -55,7 +54,7 @@ def okhome():
 def searchSel():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
-    sql = "select * from hBefore order by d002 desc"
+    sql = "select * from hBefore order by d002 desc limit 200"
     cur.execute(sql)
     result = cur.fetchall()
     db.close()
