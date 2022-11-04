@@ -1,0 +1,25 @@
+<div id="mainTopLogo">
+    <a href="">
+        <img src="" alt=""/>
+    </a>
+</div>
+
+{% include './menu/topmenu.html' %}
+
+<div id="mainInfo">
+    <form type="button">
+        <a href="/logman">
+            {%  if session["userName"] %}
+            <object src="/static/images/profileWoman.svg" type="images/svg+xml">
+                <img src="/static/images/profileWoman.svg" alt="logout"/>
+            </object>
+            <span>{{ session["userName"]}}</span>
+            {%  endif %}
+        </a>
+    </form>
+    <form type="button" data-keyword="LOGOUT" onClick="location.href='../logout'">
+        <object src="/static/images/logout.svg" type="images/svg+xml">
+            <img src="/static/images/logout.svg" alt="logout"/>
+        </object>
+    </form>
+</div>
