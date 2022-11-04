@@ -27,7 +27,7 @@
 
 .sideMenu ul li {
     line-height: 52px;
-    padding-left:15px;
+    padding-left:10px;
     font-family:'NanumSquareRound';
 }
 
@@ -179,15 +179,13 @@
 #sideMenu ul:not(#panel), #commonContent {
     height:calc(100vh - 40px);
 }
-/*1920 commonBodyContents>commonSideMenu 시작*/
+
 #sideMenu{
-    width:146px;
+    width:160px;
 }
 /*1920 commonBodyContents>commonSideMenu 끝*/
 /*1920 commonBodyContents>commonContent 시작*/
-/*#commonContent>div{
-    min-height: 400px;
-}*/
+
 #commonContent>div {
     /* grid-column: span 6; */
     padding-top:16px;
