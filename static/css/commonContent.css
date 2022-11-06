@@ -121,7 +121,7 @@
 }
 
 /*topSearchWrap commonTopHeader 시작*/
-#commonContent .mainTopMenu {
+#commonContent .comSearch {
     background-color:#fff;
     display: grid;
     overflow: hidden;
@@ -130,17 +130,17 @@
     margin-right: 8px;
 }
 
-#commonContent .mainTopMenu ul {
+#commonContent .comSearch ul {
     height:100%;
 }
 
-#commonContent .mainTopMenu ul li{
+#commonContent .comSearch ul li{
     height:100%;
     float:left;
     text-align:center;
 }
 
-#commonContent .mainTopMenu ul li button{
+#commonContent .comSearch ul li button{
     font-size: 14px;
     font-family:'NanumSquareRound';
     border:0;
@@ -152,14 +152,14 @@
     color:#fff;
 }
 
-#commonContent .mainTopMenu ul li .checked {
+#commonContent .comSearch ul .checked {
     background-color: #5a7fc4;
     color:#fff;
 }
 
-#commonContent .mainTopMenu ul li button.active{
+/* #commonContent .mainTopMenu ul li button.active{
     background:linear-gradient(to bottom, #ffffff 95%, #302D81 5%);
-}
+} */
 /*topSearchWrap commonTopHeader 끝*/
 /*topSearchWrap 끝*/
 

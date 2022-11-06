@@ -14,6 +14,11 @@
         width:126px;
     }
 
+    #commonTopHeader #mainTopLogo img {
+        width:132px;
+        margin-left:8px;
+    }
+
     /* #commonTopHeader #mainInfo 시작*/
     #commonTopHeader #mainInfo {
         display: flex;
@@ -82,6 +87,10 @@
     background-color: #fff;
     height:40px;
     box-sizing: border-box;
+    /* border-bottom:1px solid blue; */
+}
+
+#commonTopHeader .mainTopMenu ul li .color {
     border-bottom:1px solid blue;
 }
 
