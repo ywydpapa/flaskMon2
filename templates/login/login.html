@@ -7,23 +7,37 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body>
-		<div class="login">
-			<h1>Login</h1>
-			<div class="links">
-				<a href="{{ url_for('login') }}" class="active">Login</a>
-				<a href="#">Register</a>
+		<div id="loginContents">
+			<div id="loginContent">
+				<div class="login">
+					<h1>Login</h1>
+					<div class="links">
+						<a href="{{ url_for('login') }}" class="active">Login</a>
+						<a href="#">Register</a>
+					</div>
+					<form action="{{ url_for('login') }}" method="post">
+						<label for="username">
+							<i class="fas fa-user"></i>
+						</label>
+						<input type="text" name="uid" placeholder="Username" id="uid" required>
+						<label for="password">
+							<i class="fas fa-lock"></i>
+						</label>
+						<input type="password" name="upw" placeholder="Password" id="upw" required>
+						<input type="submit" value="Login">
+					</form>
+				</div>
 			</div>
-			<form action="{{ url_for('login') }}" method="post">
-				<label for="username">
-					<i class="fas fa-user"></i>
-				</label>
-				<input type="text" name="uid" placeholder="Username" id="uid" required>
-				<label for="password">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="upw" placeholder="Password" id="upw" required>
-				<input type="submit" value="Login">
-			</form>
+
+			<div id="loginIntroduce">
+				<div id="loginSpans">
+					<span id="loginIntroSpan_1">Welcome to </span>
+					<span id="loginIntroSpan_2">LogVision</span>
+				</div>
+				<div id="loginIntroImgDiv">
+					<img src="/static/images/loginIntroduce.png" id="loginIntroImg" />
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
