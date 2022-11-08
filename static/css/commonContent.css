@@ -79,6 +79,7 @@
 }
 
 #commonContent>div {
+    width: 100%;
     background: #fff;
     grid-row: span 2;
     box-shadow: 0px 2px 14px rgb(0 0 0 / 12%);
@@ -213,18 +214,5 @@
 #sideMenu{
     width:160px;
 }
-/*1920 commonBodyContents>commonSideMenu 끝*/
-/*1920 commonBodyContents>commonContent 시작*/
-
-#commonContent>div {
-    /* grid-column: span 6; */
-    padding-top:16px;
-    width: 100%;
-}
-/*1920 commonBodyContents>commonContent 끝*/
-/*1920 commonBodyContents 끝*/
-
-/* @media all and (min-width:1920px){
-} */
 
 

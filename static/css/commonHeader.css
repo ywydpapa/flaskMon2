@@ -41,7 +41,7 @@
     }
 
     #commonTopHeader #mainInfo form:first-child object img{
-        width:25px;
+        width:22px;
         margin-right: 4px;
     }
 
@@ -52,7 +52,7 @@
     }
 
     #commonTopHeader #mainInfo form:last-child object img{
-        width:32px;
+        width:30px;
     }
     /* #commonTopHeader #mainInfo 끝*/
 
