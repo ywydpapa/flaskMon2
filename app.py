@@ -55,8 +55,6 @@ def diskstat():
     result_disk = psutil.disk_usage(os.getcwd())
     return render_template("stat/dashdisk.html", result=result_disk)
 
-
-
 @app.route('/subm/network')  # 요청
 def networkstat():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
@@ -73,7 +71,6 @@ def okhome():
     db = pymysql.connect(host='192.168.1.45', user='swcore', password='core2020', db='logger', charset='utf8')
     cur = db.cursor()
     sql = "select * from hBefore order by d002 desc limit 200"
-
     cur.execute(sql)
     result = cur.fetchall()
     db.close()
