@@ -7,7 +7,6 @@ import datetime
 import os
 import psutil
 
-
 db=None
 cur=None
 app = Flask(__name__)
@@ -63,7 +62,6 @@ def networkstat():
     cur.execute(sql)
     result = cur.fetchall()
     db.close()
-    print(result)
     return render_template("stat/dashnetwork.html", result=result)
 
 @app.route('/monmain')  # 요청
@@ -74,7 +72,6 @@ def okhome():
     cur.execute(sql)
     result = cur.fetchall()
     db.close()
-    print(result)
     return render_template("stat/indexStart.html", result=result)
 
 @app.route('/dashmain')  # 요청
